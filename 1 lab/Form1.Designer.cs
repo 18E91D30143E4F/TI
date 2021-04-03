@@ -34,22 +34,21 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnDecrypt = new System.Windows.Forms.Button();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.label1 = new System.Windows.Forms.Label();
             this.tbResult = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            this.tbKey = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnEncrypt
             // 
-            this.btnEncrypt.Location = new System.Drawing.Point(66, 202);
+            this.btnEncrypt.Location = new System.Drawing.Point(82, 202);
             this.btnEncrypt.Name = "btnEncrypt";
             this.btnEncrypt.Size = new System.Drawing.Size(149, 34);
             this.btnEncrypt.TabIndex = 0;
             this.btnEncrypt.Text = "Зашифровать";
             this.btnEncrypt.UseVisualStyleBackColor = true;
-            this.btnEncrypt.Click += new System.EventHandler(this.button1_Click_1);
+            this.btnEncrypt.Click += new System.EventHandler(this.btnEncrypt_Click);
             // 
             // tbText
             // 
@@ -70,7 +69,6 @@
             this.cbMetod.Name = "cbMetod";
             this.cbMetod.Size = new System.Drawing.Size(230, 24);
             this.cbMetod.TabIndex = 4;
-            this.cbMetod.Click += new System.EventHandler(this.comboBox1_Click);
             // 
             // label2
             // 
@@ -98,27 +96,16 @@
             this.btnDecrypt.TabIndex = 7;
             this.btnDecrypt.Text = "Расшифровать";
             this.btnDecrypt.UseVisualStyleBackColor = true;
-            // 
-            // trackBar1
-            // 
-            this.trackBar1.Location = new System.Drawing.Point(215, 120);
-            this.trackBar1.Maximum = 20;
-            this.trackBar1.Minimum = 2;
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(158, 56);
-            this.trackBar1.TabIndex = 8;
-            this.trackBar1.Value = 2;
-            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
+            this.btnDecrypt.Click += new System.EventHandler(this.btnDecrypt_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 120);
+            this.label1.Location = new System.Drawing.Point(97, 123);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(194, 17);
+            this.label1.Size = new System.Drawing.Size(118, 17);
             this.label1.TabIndex = 9;
-            this.label1.Text = "Текущее значение ключа: 2";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.label1.Text = "Значение ключа";
             // 
             // tbResult
             // 
@@ -136,15 +123,22 @@
             this.label4.TabIndex = 11;
             this.label4.Text = "Результат";
             // 
+            // tbKey
+            // 
+            this.tbKey.Location = new System.Drawing.Point(215, 120);
+            this.tbKey.Name = "tbKey";
+            this.tbKey.Size = new System.Drawing.Size(230, 22);
+            this.tbKey.TabIndex = 12;
+            // 
             // Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(486, 252);
+            this.ClientSize = new System.Drawing.Size(474, 252);
+            this.Controls.Add(this.tbKey);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.tbResult);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.btnDecrypt);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -153,7 +147,7 @@
             this.Controls.Add(this.btnEncrypt);
             this.Name = "Form";
             this.Text = "Кадет";
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            this.Load += new System.EventHandler(this.Form_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -167,10 +161,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnDecrypt;
-        private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbResult;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox tbKey;
     }
 }
 

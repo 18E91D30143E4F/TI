@@ -17,27 +17,49 @@ namespace _1_lab
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //label1.Text = RailFence.Encrypt(textBox1.Text, 4);
-            //label1.Text = RailFence.Decrypt(RailFence.Encrypt(textBox1.Text, 4), 4);
-        }
-
-        private void comboBox1_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
-            label1.Text = String.Format("Текущее значение ключа: {0}", trackBar1.Value);
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void btnEncrypt_Click(object sender, EventArgs e)
+        {
+            switch (cbMetod.SelectedIndex)
+            {
+                case 0:
+                    tbResult.Text = RailFence.Encrypt(tbText.Text, Int16.Parse(tbKey.Text));
+                    break;
+                case 1:
+                    tbResult.Text = Columns.Encrypt(tbText.Text, tbKey.Text);
+                    break;
+                case 2:
+                    tbResult.Text = RotateGrid.Encrypt(tbText.Text, tbKey.Text);
+                    break;
+                case 3:
+                    tbResult.Text = CaesarCipher.Encrypt(tbText.Text, Int32.Parse(tbKey.Text));
+                    break;
+            }
+        }
+
+        private void btnDecrypt_Click(object sender, EventArgs e)
+        {
+            switch (cbMetod.SelectedIndex)
+            {
+                case 0:
+                    tbResult.Text = RailFence.Decrypt(tbResult.Text, Int16.Parse(tbKey.Text));
+                    break;
+                case 1:
+                    tbResult.Text = Columns.Decrypt(tbResult.Text, tbKey.Text);
+                    break;
+                case 2:
+                    tbResult.Text = RotateGrid.Decrypt(tbResult.Text, tbKey.Text);
+                    break;
+                case 3:
+                    tbResult.Text = CaesarCipher.Decrypt(tbResult.Text, Int32.Parse(tbKey.Text));
+                    break;
+            }
+        }
+
+        private void Form_Load(object sender, EventArgs e)
         {
 
         }
